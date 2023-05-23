@@ -1,0 +1,118 @@
+#pragma once
+#include"LinkedList.h"
+class myLinkedList : public linkedList{
+    public:
+    myLinkedList();
+    void insertAtHead(int);
+    void insertAtTail(int);
+    void display();
+    int deleteFromTail();
+    int deleteFromHead();
+    int findKthToLast(int );
+};
+int myLinkedList::findKthToLast(int nth){
+    Node* head=tail->next;
+    int count=1;
+    while(head != tail){
+        head=head->next;
+        count++;
+    }
+    if(nth>=count){
+        return -1;
+    }
+    else{
+    head=tail->next;
+    for(int i=0;i!=count-nth;i++){
+        head=head->next;
+    }
+    return head->data;
+    }
+}
+ myLinkedList::myLinkedList():linkedList(){
+   
+ }
+void myLinkedList::insertAtHead(int value){
+    Node* newNode=new Node;
+    newNode->data=value;
+    newNode->next=nullptr;
+    if(tail==nullptr){
+        tail=newNode;
+        tail->next=newNode;
+    }
+    else{
+        Node* temp=tail->next;
+        newNode->next=temp;
+        tail->next=newNode;
+    }
+}
+void myLinkedList::insertAtTail(int value){
+    Node* newNode=new Node;
+    newNode->data=value;
+    newNode->next=nullptr;
+    if(tail==nullptr){
+        tail=newNode;
+        tail->next=newNode;
+    }
+    else{
+        newNode->next=tail->next;
+        tail->next=newNode;
+        tail=newNode;
+    } 
+}
+void myLinkedList::display(){
+    
+    Node* head=tail->next;
+    while(head != tail){
+        
+        std::cout<<head->data<<std::endl;
+        head=head->next;
+    }
+    std::cout<<head->data<<std::endl;
+}
+int myLinkedList::deleteFromTail(){
+      if(tail==nullptr){
+        std::cout<<"linkedList is empty"<<std::endl;
+        return 0;
+    }
+    else if(tail==tail->next){
+       int rv=tail->data;
+       delete tail;
+       tail=nullptr;
+       return rv;
+    }
+    else{ 
+    Node* head=tail->next;
+    while(head->next != tail){
+        head=head->next;
+    }
+    Node* temp=tail;
+    head->next=tail->next;
+    tail=head;
+    int rv=temp->data;
+    delete temp;
+    temp=nullptr;
+    return rv;
+        
+    }
+    
+}
+int myLinkedList::deleteFromHead(){
+    if(tail==nullptr){
+        std::cout<<"linkedList is empty"<<std::endl;
+        return 0;
+    }
+    else if(tail==tail->next){
+       int rv=tail->data;
+       delete tail;
+       tail=nullptr;
+       return rv;
+    }
+    else{ 
+        Node* temp=tail->next->next;
+        Node* temp2=tail->next;
+        int rv=temp2->data;
+        delete temp2;
+        tail->next=temp;
+        temp2=nullptr;
+        return rv;}
+}
