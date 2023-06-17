@@ -2,14 +2,15 @@
 This repository contains a collection of data structures and algorithms implemented in C++. 
 The goal of this Repository is to provide a comprehensive set of commonly used data structures and algorithms that can be easily understood and utilized by developers.
 
-- Table of Contents
 - Introduction
 - Data Structures
 - Algorithms
 - Usage
 - Contributing
 - License
-- Introduction
+
+
+## Introduction
 Understanding data structures and algorithms is essential for writing efficient and optimized code. 
 This repository aims to provide a variety of data structures and algorithms, along with explanations and examples, to help developers grasp the fundamentals and apply them in their own projects.
 
@@ -28,6 +29,7 @@ The repository includes implementations of the following data structures:
 10) Trie
 11) Red-Black Tree
 12) AVL Tree
+
 Each data structure is implemented with appropriate methods and operations to support common functionalities. 
 Additionally, the repository includes detailed explanations of the data structures and their operations.
 
